@@ -1,0 +1,56 @@
+nginx:
+  image: nginx
+  volumes:
+    - ./oxid/source:/var/www
+    - ./sites:/etc/nginx/conf.d
+    - ./logs:/var/log/nginx
+  ports:
+    - "80:80"
+    - "443:443"
+  links:
+    - php:php   
+  environment:
+    - NGINX_HOST=foobar.com
+    - NGINX_PORT=80
+  command:  nginx -g 'daemon off;'
+
+php:
+  image: php:7-fpm
+  links:
+    - mysql:mysql
+#    - mongo:mongo
+#    - memcached:memcached
+#    - redis:redis
+#    - elasticsearch:elasticsearch
+# no need to publish port 9000, ports are open between the linked docker containers
+#  ports:
+#    - "9000:9000"
+
+mysql:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+
+#mongo:
+#  image: mongo
+#  ports:
+#    - "27017:27017"
+
+#memcached:
+#  image: memcached
+#  ports:
+#    - "11211:11211"
+
+#redis:
+#  image: redis
+#  ports:
+#    - "6379:6379"
+
+#elasticsearch:
+#  image: elasticsearch
+#  ports:
+#    - "9200:9200"
+#    - "9300:9300"
+

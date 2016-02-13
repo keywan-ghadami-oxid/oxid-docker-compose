@@ -1,0 +1,3 @@
+[submodule "oxideshop_ce"]
+	path = oxideshop_ce
+	url = git@github.com:OXID-eSales/oxideshop_ce.git
