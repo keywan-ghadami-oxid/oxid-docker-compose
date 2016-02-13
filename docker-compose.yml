@@ -1,7 +1,7 @@
 nginx:
   image: nginx
   volumes:
-    - ./oxid/source:/var/www
+    - ./oxideshop_ce/source:/var/www/oxid #same path as the for the php container
     - ./sites:/etc/nginx/conf.d
     - ./logs:/var/log/nginx
   ports:
@@ -16,8 +16,11 @@ nginx:
 
 php:
   image: php:7-fpm
+  volumes:
+     - ./oxideshop_ce/source:/var/www/oxid # (/var/www/ holds startup command so it can not be used directly)
   links:
     - mysql:mysql
+#    - ./logs:/var/www/log
 #    - mongo:mongo
 #    - memcached:memcached
 #    - redis:redis
