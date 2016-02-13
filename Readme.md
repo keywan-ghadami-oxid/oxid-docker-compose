@@ -14,9 +14,5 @@ docker compose start
 open your browser
 http://localhost
 
-#Warning
-
-the official develop envirionment is
-
 
 
