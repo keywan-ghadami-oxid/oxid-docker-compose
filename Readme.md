@@ -4,7 +4,7 @@ oxid-docker-compose
 Getting started
 ===========
 Join the team:
-* [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keywan-ghadami/oxid-docker-compose?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+* [![Join the chat at https://gitter.im/keywan-ghadami/oxid-docker-compose](https://badges.gitter.im/keywan-ghadami/oxid-docker-compose.svg)](https://gitter.im/keywan-ghadami/oxid-docker-compose?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 * Or create bugtickets with any question
 
 
@@ -18,5 +18,4 @@ Join the team:
   * docker exec -i -t oxidvargant_php_1 bash
   * run composer install -o --no-dev
 * open your browser http://localhost
-
 
