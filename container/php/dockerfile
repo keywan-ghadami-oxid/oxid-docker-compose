@@ -1,7 +1,19 @@
 FROM php:7-fpm
 ENV COMPOSER_VERSION master
-RUN apt-get update && apt-get install -y git 
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# package git is needed for composer install command
+# php gd support: libjpeg62-turbo-dev libpng12-dev gd
+# php soap support: libxml2-dev
+
+RUN apt-get update && apt-get install -y \
+  git \
+  libjpeg62-turbo-dev \
+  libpng12-dev \
+  && docker-php-ext-install -j$(nproc) gd mysqli mbstring 
+
+RUN apt-get install -y libxml2-dev && docker-php-ext-install -j$(nproc) soap bcmath
 
 
