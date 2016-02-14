@@ -1,5 +1,7 @@
 # oxid-docker-compose
 
+[![Join the chat at https://gitter.im/keywan-ghadami/oxid-docker-compose](https://badges.gitter.im/keywan-ghadami/oxid-docker-compose.svg)](https://gitter.im/keywan-ghadami/oxid-docker-compose?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 git clone --recursive git@github.com:keywan-ghadami/oxid-docker-compose.git
 
 Install Docker
