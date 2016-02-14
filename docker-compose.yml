@@ -1,7 +1,7 @@
 nginx:
   image: nginx
   volumes:
-    - ./oxideshop_ce/source:/var/www/oxid #same path as the for the php container
+    - ./oxideshop_ce/source:/var/www/html #same path as the for the php container
     - ./sites:/etc/nginx/conf.d
     - ./logs:/var/log/nginx
   ports:
@@ -15,9 +15,9 @@ nginx:
   command:  nginx -g 'daemon off;'
 
 php:
-  image: php:7-fpm
+  build: container/php
   volumes:
-     - ./oxideshop_ce/source:/var/www/oxid # (/var/www/ holds startup command so it can not be used directly)
+     - ./oxideshop_ce/source:/var/www/html # (/var/www/ holds startup command so it can not be used directly)
   links:
     - mysql:mysql
 #    - ./logs:/var/www/log
