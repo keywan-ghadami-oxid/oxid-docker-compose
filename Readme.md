@@ -31,8 +31,8 @@ Join the team:
 * Install Docker Compose https://docs.docker.com/compose/install/
 * run docker compose start
 * get the name of the php container by running: docker compose ps
-* asume the name is oxid-docker-compose_php_1 the run
-  * docker exec -i -t oxidvargant_php_1 bash
+* asume the name is oxiddockercompose_php_1 the run
+  * docker exec -i -t oxiddockercompose_php_1 bash
   * run composer install -o --no-dev
 * open your browser http://localhost
 
