@@ -4,16 +4,28 @@ ENV COMPOSER_VERSION master
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+RUN apt-get update 
+
+RUN apt-get install -y apt-utils 
+
+
 # package git is needed for composer install command
+RUN apt-get install -y git 
+
 # php gd support: libjpeg62-turbo-dev libpng12-dev gd
+RUN apt-get install -y libjpeg62-turbo-dev libpng12-dev libfreetype6-dev
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ 
+RUN docker-php-ext-install -j$(nproc) gd
+
+#mycrypt
+#RUN apt-get install -y libmcrypt
+#RUN docker-php-ext-install -j$(nproc) mcrypt
+
+RUN docker-php-ext-install -j$(nproc) mysqli mbstring iconv  bcmath
+
 # php soap support: libxml2-dev
+RUN apt-get install -y libxml2-dev && docker-php-ext-install -j$(nproc) soap
 
-RUN apt-get update && apt-get install -y \
-  git \
-  libjpeg62-turbo-dev \
-  libpng12-dev \
-  && docker-php-ext-install -j$(nproc) gd mysqli mbstring 
-
-RUN apt-get install -y libxml2-dev && docker-php-ext-install -j$(nproc) soap bcmath
+USER www-data
 
 
