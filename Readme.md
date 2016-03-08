@@ -29,10 +29,17 @@ Join the team:
 * in the copy config.inc.php.dist => config.inc.php 
 * Install Docker https://docs.docker.com/engine/installation/
 * Install Docker Compose https://docs.docker.com/compose/install/
-* run docker compose start
+* set an USER_ID environvariable (EXPORT USER_ID=$UID)  
+* run docker-compose up -d
 * get the name of the php container by running: docker compose ps
 * asume the name is oxiddockercompose_php_1 the run
   * docker exec -i -t oxiddockercompose_php_1 bash
   * run composer install -o --no-dev
 * open your browser http://localhost
+
+Troubleshooting
+=============
+* usermod: invalid user ID 'www-data' => Set the USER_ID environment variable, see above
+
+
 

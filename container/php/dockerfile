@@ -22,15 +22,14 @@ RUN docker-php-ext-install -j$(nproc) gd
 #RUN docker-php-ext-install -j$(nproc) mcrypt
 
 RUN docker-php-ext-install -j$(nproc) mysqli mbstring iconv  bcmath
-# php soap support: libxml2-dev
-RUN apt-get install -y libxml2-dev && docker-php-ext-install -j$(nproc) soap
 
+# php soap support: libxml2-dev
+RUN DEBIAN_FRONTEND=noninteractive \
+ apt-get install -y libxml2-dev && docker-php-ext-install -j$(nproc) soap
+
+#COPY
 #PHPFPM runs as www-data, so change the uid to match the host user
 #temp. hardcoded
-RUN usermod -u 1000 www-data
-
-USER www-data
-
-
-
+COPY start.sh /root/start.sh
+CMD /root/start.sh
 

@@ -16,10 +16,13 @@ nginx:
 
 php:
   build: container/php
+  environment:
+     - USER_ID=${USER_ID}
   volumes:
      - ./oxideshop_ce/source:/var/www/html # (/var/www/ holds startup command so it can not be used directly)
   links:
     - mysql:mysql
+  
 #    - ./logs:/var/www/log
 #    - mongo:mongo
 #    - memcached:memcached
