@@ -33,7 +33,7 @@ Join the team:
 * run docker-compose up -d
 * get the name of the php container by running: docker compose ps
 * asume the name is oxiddockercompose_php_1 the run
-  * docker exec -i -t oxiddockercompose_php_1 bash
+  * docker exec --user www-data -i -t oxiddockercompose_php_1 bash
   * run composer install -o --no-dev
 * open your browser http://localhost
 
