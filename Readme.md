@@ -37,6 +37,17 @@ Join the team:
   * run composer install -o --no-dev
 * open your browser http://localhost
 
+Setup
+=====
+* open your browser http://localhost
+* all checkmarks should be checked (green)
+* on database setting enter
+  *  servername : mysql
+  *  databasename : oxid (or what ever you like)
+  *  user : root
+  *  password : password (see docker-compose.yml)
+
+
 Troubleshooting
 =============
 * usermod: invalid user ID 'www-data' => Set the USER_ID environment variable, see above
