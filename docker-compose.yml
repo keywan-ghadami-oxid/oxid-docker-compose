@@ -15,7 +15,7 @@ nginx:
   command:  nginx -g 'daemon off;'
 
 php:
-  build: container/php
+  image: keywanghadamioxid/php-fpm-oxid
   environment:
      - USER_ID=${USER_ID}
   volumes:
